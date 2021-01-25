@@ -1,1 +1,6 @@
-# EDIT-THIS-README
+# Pokemon Catcher
+
+## HTML Setup
+
+
+## Plan
