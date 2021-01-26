@@ -28,11 +28,6 @@ export function setThreePokemon() {
     div.append(img1, img2, img3);
 }
 
-// Check for matching ids and loop until unique
-export function uniqueCheck() {
-
-}
-
 // Function - render img from Pokemon data
 export function renderPokeImg(pokemonItem) {
     const image = document.createElement('img');
