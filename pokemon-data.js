@@ -1,6 +1,6 @@
 // eslint-disable 
 
-export default [
+export const pokeData = [
     {
         'pokemon':'bulbasaur',
         'id':1,       

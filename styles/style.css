@@ -117,3 +117,7 @@ footer {
     }
 
   }
+
+  #poke-pics {
+    display: block;
+  }

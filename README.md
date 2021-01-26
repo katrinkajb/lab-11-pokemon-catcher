@@ -5,7 +5,7 @@
  
 Create results page:
     1) Generate 'caught' and 'encountered' counts for each pokemon
-    2) Display pokemon that wre encountered, but never caught
+    2) Display pokemon that were encountered, but never caught
     3) Button to play again (clear local storage so user can play again)
 
 
