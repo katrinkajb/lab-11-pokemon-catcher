@@ -1,4 +1,4 @@
-import { pokeData } from '/pokemon-data.js';
+import { pokeData } from 'pokemon-data.js';
 
 // Generate random pokemon
 export function randomPokemon() {
