@@ -118,6 +118,15 @@ footer {
 
   }
 
-  #poke-pics {
-    display: block;
+img {
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
   }
+
+  /* Not working (class isn't being added)
+  .pokemon-pics:hover {
+  transform: scale(1,2);
+  } */
