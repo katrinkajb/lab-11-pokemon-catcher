@@ -1,6 +1,6 @@
 // IMPORT MODULES under test here:
 import { renderPokeImg, findById } from '../utils.js';
-// import { incrementEncountered, getPokeStats } from '../local-storage-utils.js';
+import { getPokeStats, incrementEncountered, setPokeStats } from '../local-storage-utils.js';
 
 const test = QUnit.test;
 
@@ -40,34 +40,36 @@ test('renderPokeImg should take an id and return an img', (expect) => {
 test('this function should take in an array and an id and return a name', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = 'bulbasaur';
+    const expected = { 'pokemon':'bulbasaur', 'id':1, 'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png' };
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = findById(1, testArray);
+    const actual = findById(testArray, 1);
 
     //Expect
     // Make assertions about what is expected versus the actual result
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
 // incrementEncountered(id) - add 1
-// test('this function should take an id and increment the encountered count by 1. Total encountered should be 4', (expect) => {
-//     let testStat = [{
-//         id: 4,
-//         caught: 2,
-//         encountered: 3
-//     }];
+test('this function should take an id and increment the encountered count by 1. Total encountered should be 4', (expect) => {
+    const testStats = [{
+        id: 4,
+        caught: 2,
+        encountered: 3
+    }];
 
-//     const expected = {
-//         id: 4,
-//         caught: 2,
-//         encountered: 4
-//     };
+    setPokeStats(testStats);
+
+    const expected = [{
+        id: 4,
+        caught: 2,
+        encountered: 4
+    }];
+
+    incrementEncountered(4);
+
+    const actual = getPokeStats();
     
-//     incrementEncountered(4);
-
-//     const actual = getPokeStats();
-
-//     expect.deepEqual(actual, expected);
-// });
+    expect.deepEqual(actual, expected);
+});
