@@ -1,6 +1,6 @@
 // IMPORT MODULES under test here:
 import { renderPokeImg, findById } from '../utils.js';
-import { getPokeStats, incrementEncountered, setPokeStats } from '../local-storage-utils.js';
+import { getPokeStats, incrementEncountered, setPokeStats, incrementCaught } from '../local-storage-utils.js';
 
 const test = QUnit.test;
 
@@ -55,19 +55,42 @@ test('this function should take in an array and an id and return a name', (expec
 test('this function should take an id and increment the encountered count by 1. Total encountered should be 4', (expect) => {
     const testStats = [{
         id: 4,
-        caught: 2,
-        encountered: 3
+        encountered: 3,
+        caught: 2
     }];
 
     setPokeStats(testStats);
 
     const expected = [{
         id: 4,
-        caught: 2,
-        encountered: 4
+        encountered: 4,
+        caught: 2
     }];
 
     incrementEncountered(4);
+
+    const actual = getPokeStats();
+    
+    expect.deepEqual(actual, expected);
+});
+
+// incrementCaught
+test('this function should take an id and increment the caught count by 1. Total caught should be 1', (expect) => {
+    const testStats = [{
+        id: 4,
+        encountered: 1,
+        caught: 0
+    }];
+
+    setPokeStats(testStats);
+
+    const expected = [{
+        id: 4,
+        encountered: 1,
+        caught: 1
+    }];
+
+    incrementCaught(4);
 
     const actual = getPokeStats();
     
