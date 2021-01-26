@@ -1,3 +1,3 @@
-import { setThreePokemon } from '../utils.js';
+import { setThreePokemon } from './utils.js';
 
 setThreePokemon();
