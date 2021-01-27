@@ -1,6 +1,8 @@
 import { incrementCaught, incrementEncountered } from './local-storage-utils.js';
 import { pokeData } from './pokemon-data.js';
 
+let numberOfTurns = 0;
+
 // Generate random pokemon
 export function randomPokemon() {
     
@@ -38,6 +40,9 @@ export function setThreePokemon() {
     incrementEncountered(pokeThree.id);
 
     const div = document.getElementById('poke-pics');
+
+    div.textContent = '';
+
     div.append(img1, img2, img3);
 }
 
@@ -45,18 +50,18 @@ export function setThreePokemon() {
 export function renderPokeImg(pokemonItem) {
     const image = document.createElement('img');
     image.src = pokemonItem.url_image;
-    // Below isn't working
     image.classList.add = 'pokemon-pics';
 
     image.addEventListener('click', () => {
         incrementCaught(pokemonItem.id);
+        numberOfTurns++;
 
-        // if (numberOfTurns < 10) {
-        //     setThreePokemon();
-        // } else {
-        //     window.location = 'results';
-        // }
+        if (numberOfTurns < 10) {
+            
+            setThreePokemon();
+        } else {
+            window.location = '../results/index.html';
+        }
     });
-
     return image;
 }

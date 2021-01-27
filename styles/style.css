@@ -29,7 +29,7 @@ main {
     align-items: center;
     margin-bottom: calc(var(--footer-height));
     /* color: rgb(0, 255, 21); */
-    background-image: url("../assets/pokebackground.jpg");
+    /* background-image: url("../assets/pokebackground.jpg"); */
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -132,3 +132,15 @@ img {
   .pokemon-pics:hover {
   transform: scale(1,2);
   } */
+
+  table {
+    width: 100%;
+    border: solid 1px black;
+    margin-bottom: 15px;
+}
+
+th {
+    border-bottom: solid .5px black;
+    font-weight: bolder;
+    background-color: var(--color5);
+}
