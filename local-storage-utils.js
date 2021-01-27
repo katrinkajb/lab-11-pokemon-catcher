@@ -25,7 +25,6 @@ export function incrementEncountered(id) {
         const newStats = {
             id: id,
             name: pokeObject.pokebase,
-            // url_image: pokeObject.url_image,
             encountered: 1,
             caught: 0
         };
