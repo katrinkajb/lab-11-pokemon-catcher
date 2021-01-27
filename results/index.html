@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <title>PokeCatcher</title>
 </head>
 <body> 
@@ -26,16 +27,17 @@
             <table id='totals-table'> 
                 <thead> 
                     <tr> 
-                        <!-- <th>Img</th> -->
+                        <th>Img</th>
                         <th>Pokemon</th> 
                         <th>Encountered</th> 
                         <th>Caught</th>  
                     </tr> 
                 </thead> 
                 <tbody id ='totals-rows'>
-                    
                 </tbody>
             </table>
+            <hr />
+            <canvas id="myChart">chart</canvas>
             <hr />
             <button id = 'play-again-button'>Play Again</button>
             <a href="../index.html">Home Page</a>
@@ -47,5 +49,4 @@
 
     <script type="module" src="./results.app.js"></script>
 </body>
-
 </html>

@@ -11,9 +11,9 @@ export function renderResults(pokemon) {
     // const tdImg = document.createElement('img');
     // tdImg.src = image;
     // tdImg.classList.add('pokemon-img');
-    // row.append(tdImg);
     // tdImg.width = 50;
     // tdImg.height = 50;
+    // row.append(tdImg);
 
     const tdName = document.createElement('td');
     tdName.classList.add('pokemon-name');
@@ -22,7 +22,7 @@ export function renderResults(pokemon) {
 
     const tdEncounters = document.createElement('td');
     tdEncounters.classList.add('pokemon-encounter');
-    tdEncounters.textContent = `${encounters} encounters`;
+    tdEncounters.textContent = `${encounters} encounter(s)`;
     row.append(tdEncounters);
 
     const tdCaught = document.createElement('td');
