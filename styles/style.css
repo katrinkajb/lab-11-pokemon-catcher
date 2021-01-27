@@ -145,6 +145,18 @@ th {
     background-color: var(--color5);
 }
 
-/* tr {
-    border: solid 1px black;
+/* td {
+    border-bottom: solid 1px black;
+    justify-items: center;
+    align-content: center;
 } */
+
+.pokemon-img {
+    height: 50px;
+    width: 50px;
+}
+
+canvas {
+    width: 75%;
+    height: 500px;
+  }

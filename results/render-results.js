@@ -1,19 +1,21 @@
-// import { pokemon } from './pokemon-data.js';
+import { pokeData } from '../pokemon-data.js';
+import { findById } from '../utils.js';
 
-export function renderResults(pokemon) {
-    const encounters = pokemon.encountered;
-    const caught = pokemon.caught;
-    const name = pokemon.name;
-    // const image = pokemon.url_image;
+export function renderResults(pokemonData) {
+    const pokemonItem = findById(pokeData, pokemonData.id);
+    const encounters = pokemonData.encountered;
+    const caught = pokemonData.caught;
+    const name = pokemonData.name;
+    const image = pokemonItem.url_image;
     
     const row = document.createElement('tr');
 
-    // const tdImg = document.createElement('img');
-    // tdImg.src = image;
-    // tdImg.classList.add('pokemon-img');
-    // tdImg.width = 50;
-    // tdImg.height = 50;
-    // row.append(tdImg);
+    const tdImg = document.createElement('img');
+    tdImg.src = image;
+    tdImg.classList.add('pokemon-img');
+    tdImg.width = 20;
+    tdImg.height = 20;
+    row.append(tdImg);
 
     const tdName = document.createElement('td');
     tdName.classList.add('pokemon-name');
