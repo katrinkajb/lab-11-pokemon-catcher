@@ -1,5 +1,5 @@
 import { findById } from './utils.js';
-// import { pokeData } from './pokemon-data.js';
+import { pokeData } from './pokemon-data.js';
 
 const POKESTATS = 'POKESTATS';
 
@@ -19,12 +19,12 @@ export function getPokeStats() {
 export function incrementEncountered(id) {
     const stats = getPokeStats();
     const poke = findById(stats, id);
-    // const pokeName = pokeData.pokebase;
+    const pokeObject = findById(pokeData, id);
 
     if (!poke) {
         const newStats = {
             id: id,
-            // name: pokeName,
+            name: pokeObject.pokebase,
             encountered: 1,
             caught: 0
         };
@@ -32,7 +32,6 @@ export function incrementEncountered(id) {
     } else {
         poke.encountered++;
     }
-    // console.log(pokebase);
     setPokeStats(stats);
 }
 
