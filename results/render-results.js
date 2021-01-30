@@ -13,8 +13,6 @@ export function renderResults(pokemonData) {
     const tdImg = document.createElement('img');
     tdImg.src = image;
     tdImg.classList.add('pokemon-img');
-    tdImg.width = 20;
-    tdImg.height = 20;
     row.append(tdImg);
 
     const tdName = document.createElement('td');
