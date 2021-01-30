@@ -1,6 +1,7 @@
 import { getPokeStats, setPokeStats } from '../local-storage-utils.js';
 import { findById } from '../utils.js';
 import { renderResults } from './render-results.js';
+import { makeEncounteredArray, makeCaughtArray, makeNamesArray } from '../results/munge.utils.js';
 
 // Display results
 const table = document.getElementById('totals-rows');
@@ -22,19 +23,19 @@ replayButton.addEventListener('click', () => {
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, { // eslint-disable-line
-    type: 'horizontalBar',
+    type: 'bar',
     data: {
-        labels: ['pikachu', 'charmander', 'bulbasaur'],
+        labels: makeNamesArray(pokeArray),
         datasets: [{
             label: '# of times encountered',
-            data: [0, 19, 3],
+            data: makeEncounteredArray(pokeArray),
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255, 99, 132, 1)',
             borderWidth: 2
         },
         {
             label: '# of times caught',
-            data: [12, 19, 3],
+            data: makeCaughtArray(pokeArray),
             backgroundColor:'rgba(255, 159, 64, 0.2)',
             borderColor: 'rgba(255, 159, 64, 1)',
             borderWidth: 2
