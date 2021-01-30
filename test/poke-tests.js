@@ -1,0 +1,98 @@
+// IMPORT MODULES under test here:
+import { renderPokeImg, findById } from '../utils.js';
+import { getPokeStats, incrementEncountered, setPokeStats, incrementCaught } from '../local-storage-utils.js';
+
+const test = QUnit.test;
+
+const testArray = [
+    { 
+        'pokemon':'bulbasaur',
+        'id':1,       
+        'url_image':'http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png',
+    }, {    
+        'pokemon':'charmander',
+        'id':5,       
+        'url_image':'http://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png',
+    }, {
+        'pokemon':'ivysaur',
+        'id':2,       
+        'url_image':'http://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png',
+    }];
+const testPokemon1 = { 'pokemon':'bulbasaur', 'id':1, 'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png' };
+
+// Test for renderPokeImg
+test('renderPokeImg should take an id and return an img', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+
+    const expected = `<img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png">`;
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = renderPokeImg(testPokemon1);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual.outerHTML, expected);
+});
+
+// findById
+test('this function should take in an array and an id and return a name', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const expected = { 'pokemon':'bulbasaur', 'id':1, 'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png' };
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = findById(testArray, 1);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual, expected);
+});
+
+// incrementEncountered(id) - add 1
+test('this function should take an id and increment the encountered count by 1. Total encountered should be 4', (expect) => {
+    const testStats = [{
+        id: 4,
+        encountered: 3,
+        caught: 2
+    }];
+
+    setPokeStats(testStats);
+
+    const expected = [{
+        id: 4,
+        encountered: 4,
+        caught: 2
+    }];
+
+    incrementEncountered(4);
+
+    const actual = getPokeStats();
+    
+    expect.deepEqual(actual, expected);
+});
+
+// incrementCaught
+test('this function should take an id and increment the caught count by 1. Total caught should be 1', (expect) => {
+    const testStats = [{
+        id: 4,
+        encountered: 1,
+        caught: 0
+    }];
+
+    setPokeStats(testStats);
+
+    const expected = [{
+        id: 4,
+        encountered: 1,
+        caught: 1
+    }];
+
+    incrementCaught(4);
+
+    const actual = getPokeStats();
+    
+    expect.deepEqual(actual, expected);
+});

@@ -28,6 +28,10 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+    /* color: rgb(0, 255, 21); */
+    /* background-image: url("../assets/pokebackground.jpg"); */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 section {
@@ -51,13 +55,22 @@ header {
     background-color: var(--color3);
     height: var(--header-height);
     box-shadow: var(--shadow);
+    background-image: url("../assets/pokebackground.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: white;
 }
+
 
 footer {
     display: flex;
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+    background-image: url("../assets/pokebackground.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: white;
 }
 
 
@@ -70,15 +83,17 @@ h2 {
     margin-right: 20px;
 }
 
-.main-logo {
-    animation: pulse 5s infinite ease-in-out;
+.main-section {
+    font-weight: bolder;
 }
 
 header img {
     height: var(--header-height);
 }
 
-
+a {
+    color: rgb(0, 255, 21)
+}
 
 content {
     width: 80%;
@@ -98,22 +113,38 @@ footer {
     background-color: var(--color3);
     box-shadow: var(--shadow);
 }
-  
-  @keyframes pulse {
-    20% {
-      transform: rotate3d(-10, -10, -10, 50deg) scale(1.2);
-    }
 
-    40% {
-        transform: rotate3d(10, 10, -10, 50deg) scale(1);
-    }
+.background-image {
+    height: fill;
+    width: fill;
+}
 
-    60% {
-        transform: rotate3d(-10, 10, 10, 50deg) scale(1.2);
-      }
-
-    80% {
-        transform: rotate3d(10, 10, 10, 50deg) scale(1);
-    }
-
+/* Change to class when that's fixed */
+img {
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
   }
+
+  /* Not working (class isn't being added)
+  .pokemon-pics:hover {
+  transform: scale(1,2);
+  } */
+
+  table {
+    width: 100%;
+    border: solid 1px black;
+    margin-bottom: 15px;
+}
+
+th {
+    border-bottom: solid .5px black;
+    font-weight: bolder;
+    background-color: var(--color5);
+}
+
+/* tr {
+    border: solid 1px black;
+} */
