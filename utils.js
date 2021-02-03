@@ -60,7 +60,7 @@ export function renderPokeImg(pokemonItem) {
             
             setThreePokemon();
         } else {
-            window.location = '../results/index.html';
+            window.location.href = './results/index.html';
         }
     });
     return image;
